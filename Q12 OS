@@ -76,7 +76,6 @@ int main()
     p[1].id=2102;
     p[2].id=2453;
 
-    // cout<<" Burst time of 4 processes : ";
     p[0].B=2;
     p[1].B=4;
     p[2].B=8;
