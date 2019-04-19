@@ -1,20 +1,19 @@
 #include<stdio.h>
-// here we creating a strucure of a process
+// creating a strucure 
 struct process 
 {
     int id;
     int B;
-    int Bbackup;   // its is for backup purpose
+    int Bbackup;   // backup purpose
     int W;
     int T;
     int C;
 };
-// here we creating object  array for 3 processes.
+// creating object  array for 3 processes.
 struct process p[3];
-
 // to find time
-int totaltime = 0;
-int prefinaltotal = 0;
+int total_time = 0;
+int prefinal_total = 0;
 
 // comparator work for sort()
 int compare(struct process p1,struct process p2)
@@ -24,7 +23,7 @@ int compare(struct process p1,struct process p2)
 }
 
 // registering the biggest burst Time among all the accessible procedures
-int findlargest()
+int find_largest()
 {
     int max = 0, i;
     for (i = 0; i < 3; i++)
@@ -41,6 +40,7 @@ int findlargest()
     }
     // returning the index of the process having the largest B
     return max;
+    
 }
 // function find completion time of each process
 void findC()
@@ -49,17 +49,17 @@ void findC()
     int flag = 0;
     while (1)
     {
-        index = findlargest();
-        printf("Process executing at time %d is: P%d\n",totaltime,index + 1);
+        index = find_largest();
+        printf("Process executing at time %d is: P%d\n",total_time,index + 1);
         p[index].B -= 1;
-        totaltime += 1;
+        total_time += 1;
         if (p[index].B == 0)
         {
-            p[index].C = totaltime;
-            printf(" Process P%d is completed at %d\n",p[index].id,totaltime);
+            p[index].C = total_time;
+            printf(" Process P%d is completed at %d\n",p[index].id,total_time);
         }
         // loop termination condition
-        if (totaltime == prefinaltotal)
+        if (total_time == prefinal_total)
             break;
     }
 }
@@ -83,7 +83,7 @@ int main()
         // backup for displaying the output in last
         // calculating total required time for terminating the funCion
         p[i].Bbackup = p[i].B;
-        prefinaltotal += p[i].B;
+        prefinal_total += p[i].B;
     }
 
     // displaying the process before executing
@@ -95,10 +95,10 @@ int main()
     }
     printf("\n");
     // calculating initial time when execution starts
-    totaltime += 0;
+    total_time += 0;
     // calculating to terminate loop
 
-    prefinaltotal += 0;
+    prefinal_total += 0;
     findC();
     int totalW = 0;
     int totalT = 0;
@@ -114,7 +114,6 @@ int main()
         // finding total turn around time
         totalT += p[i].T;
     }
-
     printf("After Execution of all the processes..\n");
 
     // after all process it will executes
