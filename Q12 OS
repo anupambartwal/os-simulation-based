@@ -1,30 +1,29 @@
-//#include <bits/stdc++.h>
 #include<stdio.h>
 // here we creating a strucure of a process
 struct process 
 {
     int id;
     int B;
-    int Bbackup;   // its is for backup purpose to print in last
+    int Bbackup;   // its is for backup purpose
     int W;
     int T;
     int C;
 };
-// here we creating object's array for 3 processes.
+// here we creating object  array for 3 processes.
 struct process p[3];
 
-// its variable to find the total time
+// to find time
 int totaltime = 0;
 int prefinaltotal = 0;
 
-// comparator function for sort()
-int compare(struct process p1,struC process p2)
+// comparator work for sort()
+int compare(struct process p1,struct process p2)
 {
-    // compare the id of two processes to break tie
+    // contrast the id of two procedures with break tie
     return p1.id< p2.id;
 }
 
-// computing the largest burst Time among all the available processes
+// registering the biggest burst Time among all the accessible procedures
 int findlargest()
 {
     int max = 0, i;
@@ -116,18 +115,18 @@ int main()
         totalT += p[i].T;
     }
 
-    printf("After Execution of all processes..\n");
+    printf("After Execution of all the processes..\n");
 
-    // after all process executes
+    // after all process it will executes
     printf("PNo\tID\tB\tC\tT\tW\n");
 
     for (i = 0; i < 3; i++)
     {
         printf("%d\t%d\t%d\t%d\t%d\t%d\n",i+1,p[i].id,p[i].Bbackup,p[i].C,p[i].T,p[i].W);
     }
-    printf("\nTotal T = %d\n",totalT);
-    printf("Average T = %f\n",totalT/4.0);
-    printf("Total W = %d\n",totalW);
-    printf("Average W = %f\n",totalW / 4.0);
+    printf("\nTotal T is = %d\n",totalT);
+    printf("Average T is = %f\n",totalT/4.0);
+    printf("Total W is= %d\n",totalW);
+    printf("Average W is= %f\n",totalW / 4.0);
     return 0;
 }
